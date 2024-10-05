@@ -27,7 +27,7 @@ With the help of this dashboard, the company has also analysed the top 5 and bot
 - Step 6: Now, to calculate the Time-Intelligence Functions like YTD functions, PYTD functions, etc., we need to add a Date Table.
 Following DAX expression was used for calculating Calendar Table: 
 
-Calendar = CALENDAR(MIN(Ecommerce_data[order_date]), MAX(Ecommerce_data[order_date]))
+    Calendar = CALENDAR(MIN(Ecommerce_data[order_date]), MAX(Ecommerce_data[order_date]))
 
 The Calendar Table uses dynamic start and end dates to optimize the storage space. 
 
@@ -35,11 +35,11 @@ Calendar Table Snap: ![Snapshot 1](https://github.com/user-attachments/assets/e1
 
 - Step 7: Extract the Date and Year Columns from the Calendar by using the following DAX Functions: 
 
-Year = YEAR('Calendar'[Date])
+    Year = YEAR('Calendar'[Date])
 
-Month = FORMAT('Calendar'[Date], "MMMM")
+    Month = FORMAT('Calendar'[Date], "MMMM")
 
-Month Number = MONTH('Calendar'[Date])
+    Month Number = MONTH('Calendar'[Date])
 
 Remember to create the ONE-TO-MANY Cardinality Relationship between the Calendar Table and Ecommerce_data Table on Order Date and set the cross-filter direction as SINGLE. 
 
@@ -51,7 +51,8 @@ Similarly, add the 4 KPI banners required to analyse and answer the problem stat
 
 - Step 10 : Now, for the first KPI - YTD Sales, calculate a new measure YTD Sales using the following DAX Function: 
 
-YTD Sales = TOTALYTD(SUM(Ecommerce_data[sales_per_order]), 'Calendar'[Date])
+    YTD Sales = TOTALYTD(SUM(Ecommerce_data[sales_per_order]), 'Calendar'[Date])
+
 Add the YTD Sales Measure in the Fields head of the KPI visualization. Format the background and the text field of the KPI banner in accordance with the theme using Format Visual. Set the data type for the YTD Sales Measure as Currency. 
 
 - Step 11 : To increase the interactivity of the YTD KPI Banner, insert an Area Chart with Month as X-axis and Sales_per_order as Y-axis. Since, we are visualising the dashboard for latest year, select the year 2022 by using the Year Filter in the Filters Tab(select Filter on this visual). 
@@ -60,21 +61,21 @@ Note: If the area chart is not sorted correctly(from January to December, select
 - Step 12: Now, we'll calculate the YoY growth/decline for the Sales KPI. 
 For this, first we will calculate a new measure named as PYTD Sales using the following DAX expression: 
 
-PYTD Sales = CALCULATE(SUM(Ecommerce_data[sales_per_order]), DATESYTD(SAMEPERIODLASTYEAR('Calendar'[Date])))
+    PYTD Sales = CALCULATE(SUM(Ecommerce_data[sales_per_order]), DATESYTD(SAMEPERIODLASTYEAR('Calendar'[Date])))
 
 Now, the YoY growth/decline will be calculated as a new measure using the DAX expression: 
 
-YoY Sales = ([YTD Sales] - [PYTD Sales])/[PYTD Sales]
+    YoY Sales = ([YTD Sales] - [PYTD Sales])/[PYTD Sales]
 
 In this case, the YoY Sales(data type is %) is - 0.83% which is depicted along with downward arrow in red background color using the DAX expressions: 
 
-Sales Icon = var positive_icon = UNICHAR(9650)
+    Sales Icon = var positive_icon = UNICHAR(9650)
              var negative_icon = UNICHAR(9660)
              var result = IF([YoY Sales]>0, positive_icon, negative_icon)
              return result
 
 
-Sales Background Icon Color = IF([YoY Sales]>0, "Green", "Red")
+    Sales Background Icon Color = IF([YoY Sales]>0, "Green", "Red")
 
 The final YTD Sales KPI banner with monthly area chart, and YoY Sales trend will be as the following screenshot: 
 
@@ -142,9 +143,9 @@ Following inferences can be drawn from the dashboard;
   
   ### [3] Sales by State 
   
-      a) The YTD Sales for the California state was maximum, which was equal to $23,35,532.25 while it was lowest for Wyoming, equals to $1609.54
+    a) The YTD Sales for the California state was maximum, which was equal to $23,35,532.25 while it was lowest for Wyoming, equals to $1609.54
 
-      b) However, the YoY growth was maximum for the state of Wyoming, with sales growth of 89.38%. 
+    b) However, the YoY growth was maximum for the state of Wyoming, with sales growth of 89.38%. 
 
 #### Thus, we can analyse that although the state of California contributed maximum towards the Sales, however, it was Wyoming state which performed exceptionally well in contrast to other states. 
 
