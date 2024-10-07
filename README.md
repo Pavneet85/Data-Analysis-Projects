@@ -78,8 +78,7 @@ In this case, the YoY Sales(data type is %) is - 0.83% which is depicted along w
     Sales Background Icon Color = IF([YoY Sales]>0, "Green", "Red")
 
 The final YTD Sales KPI banner with monthly area chart, and YoY Sales trend will be as the following screenshot: 
-
-YTD Sales KPI banner Snap: ![Snapshot 2](https://github.com/user-attachments/assets/d04158de-9108-4b0d-b269-a9ea964184dd)
+ ![Snapshot 2](https://github.com/user-attachments/assets/d04158de-9108-4b0d-b269-a9ea964184dd)
 
 - Step 13: Now, for the other 3 remaining KPIs, namely YTD Profit, YTD Quantity and YTD Profit Margin, follow the Steps 10 to 12 precisely and the resultant dashboard with the 4 KPIs will be as follows: 
 
