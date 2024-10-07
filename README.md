@@ -1,4 +1,4 @@
-# Ecommerce Sales Dashboard
+# Project 1: Ecommerce Sales Dashboard
 
 ### Dashboard Link : https://github.com/user-attachments/assets/94328b52-f58c-430e-9ef8-55617b61f5b4
 
