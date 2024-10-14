@@ -35,11 +35,11 @@ Calendar Table Snap: ![Snapshot 1](https://github.com/user-attachments/assets/e1
 
 - Step 7: Extract the Date and Year Columns from the Calendar by using the following DAX Functions: 
 
-    Year = YEAR('Calendar'[Date])
+      Year = YEAR('Calendar'[Date])
 
-    Month = FORMAT('Calendar'[Date], "MMMM")
+      Month = FORMAT('Calendar'[Date], "MMMM")
 
-    Month Number = MONTH('Calendar'[Date])
+      Month Number = MONTH('Calendar'[Date])
 
 Remember to create the ONE-TO-MANY Cardinality Relationship between the Calendar Table and Ecommerce_data Table on Order Date and set the cross-filter direction as SINGLE. 
 
@@ -51,7 +51,7 @@ Similarly, add the 4 KPI banners required to analyse and answer the problem stat
 
 - Step 10 : Now, for the first KPI - YTD Sales, calculate a new measure YTD Sales using the following DAX Function: 
 
-    YTD Sales = TOTALYTD(SUM(Ecommerce_data[sales_per_order]), 'Calendar'[Date])
+      YTD Sales = TOTALYTD(SUM(Ecommerce_data[sales_per_order]), 'Calendar'[Date])
 
 Add the YTD Sales Measure in the Fields head of the KPI visualization. Format the background and the text field of the KPI banner in accordance with the theme using Format Visual. Set the data type for the YTD Sales Measure as Currency. 
 
