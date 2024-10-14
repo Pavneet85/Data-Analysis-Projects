@@ -27,7 +27,7 @@ With the help of this dashboard, the company has also analysed the top 5 and bot
 - Step 6: Now, to calculate the Time-Intelligence Functions like YTD functions, PYTD functions, etc., we need to add a Date Table.
 Following DAX expression was used for calculating Calendar Table: 
 
-    Calendar = CALENDAR(MIN(Ecommerce_data[order_date]), MAX(Ecommerce_data[order_date]))
+      Calendar = CALENDAR(MIN(Ecommerce_data[order_date]), MAX(Ecommerce_data[order_date]))
 
 The Calendar Table uses dynamic start and end dates to optimize the storage space. 
 
